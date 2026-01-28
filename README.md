@@ -25,4 +25,19 @@ Stage 2 implements the core OOP classes and required algorithms:
 - Zone statistics (min/max/mean)
 - Pollution zone sorting
 - Main simulation program
+## Stage 3: Advanced System
+
+Stage 3 adds:
+
+- Alert generation when thresholds are exceeded
+- Trend detection using moving averages
+- Prediction of next sensor values
+- Flask web dashboard interface
+
+### Running Web App
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
 
