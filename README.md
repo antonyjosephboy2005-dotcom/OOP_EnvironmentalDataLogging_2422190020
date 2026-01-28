@@ -15,5 +15,14 @@ This project simulates an environmental monitoring platform using Object-Oriente
 - Design documentation: docs/design.md
 - UML class diagram: docs/uml.txt
 
-Stage 2 will include full implementation and algorithms.
-OP_EnvironmentalDataLogging_2422190020
+Stage 2  full implementation and algorithms.
+## Stage 2: Basic Implementation
+
+Stage 2 implements the core OOP classes and required algorithms:
+
+- Sensor simulation
+- Measurement logging
+- Zone statistics (min/max/mean)
+- Pollution zone sorting
+- Main simulation program
+
