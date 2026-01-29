@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Environmental Monitoring Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 750px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .alert {
+            background: #ffcccc;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            color: darkred;
+            font-weight: bold;
+        }
+
+        select, button {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #2c3e50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🌍 Environmental Monitoring Dashboard</h1>
+
+<!-- Zone Selection -->
+<div class="card">
+    <h2>Select Zone</h2>
+
+    <form method="get" action="/">
+        <select name="zone">
+            {% for z in zones %}
+                <option value="{{ z }}" {% if z == selected_zone %}selected{% endif %}>
+                    {{ z }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit">View Zone</button>
+    </form>
+
+    <!-- Generate New Data Button -->
+    <form method="post" action="/generate">
+        <input type="hidden" name="zone" value="{{ selected_zone }}">
+        <button type="submit">🔄 Generate New Readings</button>
+    </form>
+</div>
+
+
+<!-- Statistics -->
+<div class="card">
+    <h2>📊 Zone: {{ selected_zone }}</h2>
+
+    <p><b>Minimum:</b> {{ stats["min"] }}</p>
+    <p><b>Maximum:</b> {{ stats["max"] }}</p>
+    <p><b>Average:</b> {{ stats["mean"] }}</p>
+
+    <h3>📈 Trend & Prediction</h3>
+    <p>Moving Average Trend: {{ trend }}</p>
+    <p>Predicted Next Value: {{ prediction }}</p>
+</div>
+
+
+<!-- Measurements Table -->
+<div class="card">
+    <h2>📌 Sensor Measurements</h2>
+
+    <table>
+        <tr>
+            <th>Sensor ID</th>
+            <th>Value</th>
+            <th>Timestamp</th>
+        </tr>
+
+        {% for m in measurements %}
+        <tr>
+            <td>{{ m.sensor_id }}</td>
+            <td>{{ m.value }}</td>
+            <td>{{ m.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+<!-- Alerts -->
+<div class="card">
+    <h2>⚠ Alerts</h2>
+
+    {% if alerts %}
+        {% for alert in alerts %}
+            <div class="alert">{{ alert }}</div>
+        {% endfor %}
+    {% else %}
+        <p>No alerts detected ✅</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
