@@ -1,43 +1,48 @@
-# O# Assignment 17 – Environmental Data Logging System
+# Environmental Data Logging and Analysis System
 
-## Stage 1: Architecture & Design
+## Course
+Object-Oriented Programming (OOP)
 
-This project simulates an environmental monitoring platform using Object-Oriented Programming principles.
+## Project Description
+This project implements an Environmental Data Logging and Analysis System using
+Object-Oriented Programming principles and a Flask web interface.
 
-### Core Designed Classes
-- Sensor
-- Measurement
-- EnvironmentZone
-- DataLogger
-- AlertSystem
+The system simulates environmental monitoring by collecting sensor data,
+logging measurements, analyzing trends, generating alerts, and displaying
+results on a professional web dashboard.
 
-### Stage 1 Deliverables
-- Design documentation: docs/design.md
-- UML class diagram: docs/uml.txt
+---
 
-Stage 2  full implementation and algorithms.
-## Stage 2: Basic Implementation
+## Project Stages
 
-Stage 2 implements the core OOP classes and required algorithms:
+### Stage 1 – System Design
+- Object-Oriented architecture design
+- UML class diagram
+- Class responsibility documentation
 
+### Stage 2 – Core Implementation
 - Sensor simulation
 - Measurement logging
-- Zone statistics (min/max/mean)
-- Pollution zone sorting
-- Main simulation program
-## Stage 3: Advanced System
+- Environmental zones
+- Statistical analysis (min, max, mean)
+- Sorting and data processing
 
-Stage 3 adds:
+### Stage 3 – Advanced Features & Web Interface
+- Alert system (threshold-based)
+- Trend analysis (moving average)
+- Prediction of future values
+- Flask web dashboard with HTML templates
+- Multi-zone monitoring and live data generation
 
-- Alert generation when thresholds are exceeded
-- Trend detection using moving averages
-- Prediction of next sensor values
-- Flask web dashboard interface
+---
 
-### Running Web App
+## Technologies Used
+- Python 3
+- Flask
+- HTML & CSS
+- Object-Oriented Programming (OOP)
 
-Install dependencies:
+---
 
-```bash
-pip install -r requirements.txt
+## Project Structure
 
